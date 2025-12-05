@@ -1,1 +1,1 @@
-# basic nixox config for hyprland
+# basic nixos config for hyprland
