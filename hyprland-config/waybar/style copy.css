@@ -1,0 +1,107 @@
+/*theme pywal*/
+/* @import "/home/m/.cache/wal/colors-waybar.css"; */
+
+@import "/home/m/.config/waybar/gruvbox.css";
+
+* {
+  font-family: JetBrains Mono Nerd Font;
+  font-size: 12px;
+  min-height: 0;
+}
+
+#waybar {
+  background: transparent;
+  color: @color8;
+  margin: 5px 5px;
+}
+
+#workspaces {
+  border-radius: 1rem;
+  margin: 5px;
+  color: @background;
+  margin-left: 1rem;
+}
+
+#workspaces button {
+  background-color: @background;
+  border-radius: 4px;
+  padding: 0.4rem;
+}
+
+#workspaces button.active {
+  background-color: @background2;
+  border-top: 2px solid @color1;
+  border-bottom: 2px solid @color1;
+  border-left: 2px solid @color1;
+  border-right: 2px solid @color1;
+  border-radius: 1rem;
+}
+
+
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#network,
+#custom-power {
+  background-color: @background2;
+  color: @color8;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+}
+
+#clock {
+  color: @color4;
+  border-radius: 0px 3px 3px  0px;
+  border:2px solid @color4;
+  margin-right: 1rem;
+}
+
+#battery {
+   color :@color2;
+}
+
+#battery.charging {
+  color :#8ec07c;
+}
+
+#battery.warning:not(.charging) {
+  color: #fb4934;
+}
+
+#network {
+}
+
+#backlight {
+}
+
+
+#backlight, #battery {
+}
+
+#pulseaudio {
+  border-radius: 3px  0px 0px 3px;
+  margin-left: 4px;
+}
+
+#custom-music {
+  border-radius: 1rem;
+}
+
+#custom-lock {
+    border-radius: 1rem 0px 0px 1rem;
+}
+
+#custom-power {
+    border:2px solid #fb4934;
+    margin-right: 1rem;
+    border-radius: 0px 1rem 1rem 0px;
+}
+
+#tray {
+  margin-right: 1rem;
+  border-radius: 1rem;
+}

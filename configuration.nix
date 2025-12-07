@@ -3,25 +3,29 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.networks = {
+    "SFR_F6CE" = {
+        psk = "1502Fevr!er2011";
+        };
+    };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  # networking.networkmanager.enable = false;
 
-  # Enablelinf flakes
+  # Enableling flakes
   nix.settings.experimental-features = [ "nix-command" "flakes"];
 
   # Set your time zone.
@@ -45,7 +49,10 @@
   services.xserver.enable = true;
 
   # Enable the XFCE Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+
+  # Enable the gdm  display manager 
+  services.displayManager.gdm.enable = true;
 
   # Enable hyprland window manager
   programs.hyprland = {
@@ -86,6 +93,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
+    librewolf-unwrapped
     ];
   };
 
@@ -108,12 +116,29 @@
     wofi
     hyprpaper
     hyprlock
+    brightnessctl
   ];
 
   #set the fish shell as default for all users
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
+  
+  programs.thunar.enable = true;
 
+  #fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    ];
+
+  #theme
+  stylix.enable = true;
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+  stylix.polarity = "dark";
+  stylix.cursor ={
+     name = "Vimix-cursors ";
+     package = pkgs.vimix-cursors;
+     size = 14;
+    };
    # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
