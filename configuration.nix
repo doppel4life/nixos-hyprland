@@ -10,6 +10,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # WIFI network configuration
   networking.hostName = "nixos"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.wireless.networks = {
@@ -18,9 +19,6 @@
         };
     };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   # networking.networkmanager.enable = false;
@@ -48,9 +46,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the XFCE Desktop Environment.
-  # services.xserver.displayManager.sddm.enable = true;
-
   # Enable the gdm  display manager 
   services.displayManager.gdm.enable = true;
 
@@ -60,6 +55,7 @@
 	withUWSM = true;
 	xwayland.enable = true;
 	};
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "fr";
@@ -84,7 +80,14 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
+
+  #set the fish shell as default for all users
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
+  
+  #set thunar as file explorer
+  programs.thunar.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.doppel = {
@@ -96,7 +99,6 @@
     librewolf-unwrapped
     ];
   };
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -119,11 +121,6 @@
     brightnessctl
   ];
 
-  #set the fish shell as default for all users
-  programs.fish.enable = true;
-  users.defaultUserShell = pkgs.fish;
-  
-  programs.thunar.enable = true;
 
   #fonts
   fonts.packages = with pkgs; [
@@ -141,15 +138,6 @@
     };
    # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.05";
 
 }
