@@ -14,6 +14,7 @@
     programs.fish.shellAliases = {
         h = "echo hello";        
         nrs = "sudo nixos-rebuild switch --impure --flake .";
+        nfu = "nix flake update";
         };
 
 # importing config files
