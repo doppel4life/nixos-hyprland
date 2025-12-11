@@ -15,10 +15,8 @@
         h = "echo hello";        
         nrs = "sudo nixos-rebuild switch --impure --flake .";
         };
-#	programs.bash = {
-#		enable = true;
-#		shellAliases = { test = "echo ca marche";};
-#        };
+
+# importing config files
 home.file.".config/hypr/".source = /home/doppel/nixos-hyprand/nixos-hyprland/hyprland-config/hypr;
 home.file.".config/kitty/".source = /home/doppel/nixos-hyprand/nixos-hyprland/hyprland-config/kitty;
 home.file.".config/waybar/".source = /home/doppel/nixos-hyprand/nixos-hyprland/hyprland-config/waybar;
