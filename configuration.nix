@@ -10,18 +10,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # WIFI network configuration
-  networking.hostName = "nixos"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.wireless.networks = {
-    "SFR_F6CE" = {
-        psk = "1502Fevr!er2011";
-        };
-    };
-
-
   # Enable networking
-  # networking.networkmanager.enable = false;
+  networking.networkmanager.enable = true;
 
   # Enableling flakes
   nix.settings.experimental-features = [ "nix-command" "flakes"];
@@ -122,6 +112,7 @@
     hyprpaper
     hyprlock
     brightnessctl
+	nmgui
   ];
 
 
