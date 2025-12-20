@@ -99,6 +99,7 @@
     librewolf-unwrapped
     qbittorrent
     vlc
+	inkscape
     ];
   };
 
