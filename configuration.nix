@@ -46,7 +46,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the gdm  display manager 
+  # Enable the display manager 
   services.displayManager.gdm.enable = true;
 
   # Enable hyprland window manager
