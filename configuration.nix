@@ -97,6 +97,8 @@
     packages = with pkgs; [
     #  thunderbird
     librewolf-unwrapped
+    qbittorrent
+    vlc
     ];
   };
 
