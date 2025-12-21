@@ -49,7 +49,7 @@
 #pulseaudio,
 #custom-lock,
 #network,
-#memory
+#memory,
 #custom-power {
   background-color: @background2;
   color: @color8;
