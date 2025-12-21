@@ -37,7 +37,7 @@
   services.xserver.enable = true;
 
   # Enable the display manager 
-  services.displayManager.gdm.enable = true;
+  #services.displayManager.gdm.enable = true;
 
   # Enable hyprland window manager
   programs.hyprland = {
@@ -45,6 +45,27 @@
 	withUWSM = true;
 	xwayland.enable = true;
 	};
+
+  # Enable greetd
+  services.greetd = {
+  	enable = true;
+	settings = {
+		default_session = {
+			command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd 'uwsm start hyprland-uwsm.desktop'";
+			user = "greeter";
+		};
+	};
+  };
+  # This stops boot logs from "bleeding" into the tuigreet UI
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "null";
+    StandardError = "journal";
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYVTDisallocate = true;
+    };
 
   # Configure keymap in X11
   services.xserver.xkb = {
