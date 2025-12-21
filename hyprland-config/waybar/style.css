@@ -13,7 +13,6 @@
 }
 
 #workspaces {
-  border-radius: 0rem;
   margin: 1px;
   color: @color8;
 }
@@ -50,6 +49,7 @@
 #pulseaudio,
 #custom-lock,
 #network,
+#memory
 #custom-power {
   background-color: @background2;
   color: @color8;
@@ -87,6 +87,8 @@
 #backlight {
 }
 
+#memory {
+}
 
 #backlight, #battery {
 }
