@@ -111,6 +111,7 @@
     qbittorrent
     vlc
 	inkscape
+	zathura
     ];
   };
 
@@ -134,6 +135,7 @@
     hyprlock
     brightnessctl
 	nmgui
+	htop
   ];
 
 
