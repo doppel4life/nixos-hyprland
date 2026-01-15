@@ -112,6 +112,8 @@
     vlc
 	inkscape
 	zathura
+	libreoffice
+	shotwell
     ];
   };
 
