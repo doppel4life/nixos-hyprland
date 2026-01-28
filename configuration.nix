@@ -107,6 +107,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
+	neovim
     librewolf-unwrapped
     qbittorrent
     vlc
