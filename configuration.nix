@@ -1,10 +1,13 @@
-{ config, pkgs, lib,... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    /etc/nixos/hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -14,7 +17,7 @@
   networking.networkmanager.enable = true;
 
   # Enableling flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -36,25 +39,25 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the display manager 
+  # Enable the display manager
   #services.displayManager.gdm.enable = true;
 
   # Enable hyprland window manager
   programs.hyprland = {
-	enable = true;
-	withUWSM = true;
-	xwayland.enable = true;
-	};
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
+  };
 
   # Enable greetd
   services.greetd = {
-  	enable = true;
-	settings = {
-		default_session = {
-			command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd 'uwsm start hyprland-uwsm.desktop'";
-			user = "greeter";
-		};
-	};
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd 'uwsm start hyprland-uwsm.desktop'";
+        user = "greeter";
+      };
+    };
   };
   # This stops boot logs from "bleeding" into the tuigreet UI
   systemd.services.greetd.serviceConfig = {
@@ -65,7 +68,7 @@
     TTYReset = true;
     TTYVHangup = true;
     TTYVTDisallocate = true;
-    };
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -96,7 +99,52 @@
   #set the fish shell as default for all users
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
-  
+
+  # setting up nvf
+  programs.nvf = {
+    enable = true;
+    # Your settings go here
+    settings = {
+      vim = {
+        options = {
+                shiftwidth = 4;
+                tabstop = 4;
+                autoindent = true;
+                };
+        viAlias = true;
+        vimAlias = true;
+        
+        statusline.lualine.enable = true;
+
+        #languages.enableTreesitter = true;
+
+        # Enable some basic features
+        #lsp.enable = true;
+        telescope.enable = true;
+        autocomplete.nvim-cmp.enable = true;
+
+        # Language support examples
+        languages = {
+            enableLSP = true;
+            enableTreesitter = true;
+            nix = { 
+                enable = true;
+                format.enable = true;
+                format.type = "nixfmt";
+                };
+
+            python = {
+                enable = true;
+                lsp.enable = true;
+                format.enable = true;
+                };
+            rust.enable = true;
+            markdown.enable = true;
+            
+        };
+      };
+    };
+  };
   #set thunar as file explorer
   programs.thunar.enable = true;
 
@@ -104,17 +152,17 @@
   users.users.doppel = {
     isNormalUser = true;
     description = "doppel";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    #  thunderbird
-	neovim
-    librewolf-unwrapped
-    qbittorrent
-    vlc
-	inkscape
-	zathura
-	libreoffice
-	shotwell
+      #  thunderbird
+      neovim
+      librewolf-unwrapped
+      qbittorrent
+      vlc
+      inkscape
+      zathura
+      libreoffice
+      shotwell
     ];
   };
 
@@ -123,7 +171,7 @@
 
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
-    vim 
+    vim
     wget
     kitty
     fish
@@ -137,27 +185,25 @@
     hyprpaper
     hyprlock
     brightnessctl
-	nmgui
-	htop
+    nmgui
+    htop
   ];
-
 
   #fonts
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
-    ];
+  ];
 
   #theme
   stylix.enable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
   stylix.polarity = "dark";
-  stylix.cursor ={
-     name = "Vimix-cursors ";
-     package = pkgs.vimix-cursors;
-     size = 14;
-    };
-   # List services that you want to enable:
+  stylix.cursor = {
+    name = "Vimix-cursors ";
+    package = pkgs.vimix-cursors;
+    size = 14;
+  };
+  # List services that you want to enable:
 
   system.stateVersion = "25.05";
-
 }
