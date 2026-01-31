@@ -60,6 +60,8 @@
 
 #clock {
   color: @color8;
+  border-radius: 3px  0px 0px 3px;
+  margin-left: 4px;
 }
 
 #battery {
@@ -98,8 +100,7 @@
 }
 
 #pulseaudio {
-  border-radius: 3px  0px 0px 3px;
-  margin-left: 4px;
+
 }
 
 #custom-music {
