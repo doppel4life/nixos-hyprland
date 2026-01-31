@@ -156,7 +156,9 @@
             python = {
                 enable = true;
                 lsp.enable = true;
+                lsp.servers = ["pyright"];
                 format.enable = true;
+                dap.enable = true ;
                 };
             rust.enable = true;
             markdown.enable = true;
