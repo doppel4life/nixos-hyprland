@@ -204,7 +204,7 @@
 		}
     },
     "custom/powerdraw": {
-        "format" : "󱐋{} W",
+        "format" : "{}W 󱐋",
         "interval" : 5,
         "exec" : "echo \"scale=2; $(cat /sys/class/power_supply/BAT0/power_now) / 1000000\" |bc",
         "tooltip": false
