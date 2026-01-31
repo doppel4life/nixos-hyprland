@@ -115,6 +115,14 @@
         viAlias = true;
         vimAlias = true;
         
+        autocomplete.blink-cmp = {
+            enable = true;
+            setupOpts = {
+                keymap.preset = "super-tab";
+                completion.ghost_text.enabled = true;
+                sources.default = [ "lsp" "path" "snippets" "buffer" ];
+                };
+            };
         statusline.lualine = {
             enable = true;
             sectionSeparator = {left ="|"; right ="|";};
@@ -185,6 +193,8 @@
       zathura
       libreoffice
       shotwell
+      loupe
+      darktable
     ];
   };
 
@@ -209,6 +219,7 @@
     brightnessctl
     nmgui
     htop
+    bc
   ];
 
   #fonts
