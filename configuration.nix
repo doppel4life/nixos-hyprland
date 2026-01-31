@@ -94,7 +94,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   #set the fish shell as default for all users
   programs.fish.enable = true;
@@ -110,27 +110,47 @@
                 shiftwidth = 4;
                 tabstop = 4;
                 autoindent = true;
+                showmode = false;
                 };
         viAlias = true;
         vimAlias = true;
         
-        statusline.lualine.enable = true;
+        statusline.lualine = {
+            enable = true;
+            sectionSeparator = {left ="|"; right ="|";};
+            componentSeparator = {left = "|"; right = "|";};
+            
+            refresh = {
+                statusline = 1000;
+                tabline = 1000;
+                winbar = 1000;
+                    };
 
+            # Defining the actual sections
+            activeSection = {
+                a = [ "{'mode'}" ];
+                b = [ "{'branch'}" "{'diff'}" "{'diagnostics'}" ];
+                c = [ "{'filename'}" ];
+                x = [ "{'encoding'}" "{'fileformat'}" "{'filetype'}" ];
+                y = [ "{'progress'}" ];
+                z = [ "{'location'}" ];
+                    };
+            };
         #languages.enableTreesitter = true;
 
         # Enable some basic features
-        #lsp.enable = true;
+        lsp.enable = true;
         telescope.enable = true;
         autocomplete.nvim-cmp.enable = true;
 
         # Language support examples
         languages = {
-            enableLSP = true;
+            #enableLSP = true;
             enableTreesitter = true;
             nix = { 
                 enable = true;
                 format.enable = true;
-                format.type = "nixfmt";
+                format.type = ["nixfmt"];
                 };
 
             python = {

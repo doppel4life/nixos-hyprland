@@ -7,8 +7,10 @@
 	xdg.enable = true;
 	programs.git = {
 		enable = true;
-		userEmail = "doppel.pers@protonmail.com";
-		userName = "doppel4life";
+		settings.user = {
+            email = "doppel.pers@protonmail.com";
+		    name = "doppel4life";
+            };
 		};	
     programs.fish.enable = true;
     programs.fish.shellAliases = {
