@@ -50,6 +50,7 @@
 #custom-lock,
 #network,
 #memory,
+#custom-powerdraw,
 #custom-power {
   background-color: @background2;
   color: @color8;
@@ -88,6 +89,9 @@
 }
 
 #memory {
+}
+
+#custom-powerdraw{
 }
 
 #backlight, #battery {

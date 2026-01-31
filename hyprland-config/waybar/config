@@ -2,7 +2,7 @@
 {
     "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 8, // Waybar height (to be removed for auto height)
+    "height": 46, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -14,14 +14,15 @@
     ],
     "modules-right": [
 	"mpd",
+        "clock",
         "pulseaudio",
         "backlight",
 		"memory",
-	"network",
-        "clock",
-        "battery",
-        "battery#bat2",
-        "tray",
+	    "network",
+        "custom/powerdraw",
+        "battery"
+        // "battery#bat2",
+        // "tray",
     ],
     "group/leaf":{
         "orentation": "inherit",
@@ -201,5 +202,11 @@
 			"suspend": "systemctl suspend",
 			"hibernate": "systemctl hibernate"
 		}
+    },
+    "custom/powerdraw": {
+        "format" : "󱐋{} W",
+        "interval" : 5,
+        "exec" : "echo \"scale=2; $(cat /sys/class/power_supply/BAT0/power_now) / 1000000\" |bc",
+        "tooltip": false
     }
 }
