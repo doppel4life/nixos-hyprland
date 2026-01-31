@@ -123,6 +123,7 @@
                 sources.default = [ "lsp" "path" "snippets" "buffer" ];
                 };
             };
+
         statusline.lualine = {
             enable = true;
             sectionSeparator = {left ="|"; right ="|";};
@@ -149,7 +150,7 @@
         # Enable some basic features
         lsp.enable = true;
         telescope.enable = true;
-        autocomplete.nvim-cmp.enable = true;
+        autocomplete.nvim-cmp.enable = false;
 
         # Language support examples
         languages = {
