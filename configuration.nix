@@ -229,6 +229,7 @@
     nmgui
     htop
     bc
+    typst
   ];
 
   #fonts
