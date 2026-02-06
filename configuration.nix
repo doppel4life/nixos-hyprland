@@ -169,6 +169,14 @@
                 format.enable = true;
                 dap.enable = true ;
                 };
+            
+            typst = {
+                enable = true;
+                lsp.enable = true;
+                lsp.servers = ["tinymist"];
+                format.enable = true;
+                extensions.typst-preview-nvim.enable = true;
+                };
             rust.enable = true;
             markdown.enable = true;
             
