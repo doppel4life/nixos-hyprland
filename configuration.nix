@@ -201,9 +201,9 @@
       inkscape
       zathura
       libreoffice
-      shotwell
+#shotwell
       loupe
-      darktable
+      rapidraw
     ];
   };
 
