@@ -15,30 +15,35 @@
 #workspaces {
   margin: 1px;
   color: @color8;
+  border-radius: 0px 0px 0px  0px;
 }
 
 #workspaces button {
   background-color: @background2;
   color : @color8;
   border-bottom: 3px solid @color8;
+  border-radius: 0px 0px 0px  0px;
 }
 
 #workspaces button.active {
   background-color: @background2;
   border-bottom: 3px solid @color1;
   color : @color1;
+  border-radius: 0px 0px 0px  0px;
 }
 
 #workspaces button.empty {
   background-color: @background2;
   color : @color8;
   border-bottom: 3px solid @color8;
+  border-radius: 0px 0px 0px  0px;
 }
 
 #workspaces button.empty.active {
   background-color: @background2;
   color : @color8;
   border-bottom: 3px solid @color1;
+  border-radius: 0px 0px 0px  0px;
 }
 
 #custom-music,
