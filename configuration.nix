@@ -40,14 +40,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable hyprland window manager
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
-  };
-
-  # Enable greetd
+ # Enable greetd
   services.greetd = {
     enable = true;
     settings = {
@@ -57,7 +50,15 @@
       };
     };
   };
-  # This stops boot logs from "bleeding" into the tuigreet UI
+
+  # Enable hyprland window manager
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
+  };
+
+   # This stops boot logs from "bleeding" into the tuigreet UI
   systemd.services.greetd.serviceConfig = {
     Type = "idle";
     StandardInput = "tty";
@@ -97,6 +98,9 @@
   #set the fish shell as default for all users
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
+
+  #set thunar as file explorer
+  programs.thunar.enable = true;
 
   # setting up nvf
   programs.nvf = {
@@ -175,6 +179,7 @@
                 format.enable = true;
                 extensions.typst-preview-nvim.enable = true;
                 };
+
             rust.enable = true;
             markdown.enable = true;
             
@@ -182,8 +187,6 @@
       };
     };
   };
-  #set thunar as file explorer
-  programs.thunar.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.doppel = {
@@ -241,8 +244,8 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     polarity = "dark";
     cursor = {
-        name = "Bibata-Modern-Ice";
-        package = pkgs.bibata-cursors;
+        name = "phinger-cursors-light";
+        package = pkgs.phinger-cursors;
         size = 14;
         };
     };
