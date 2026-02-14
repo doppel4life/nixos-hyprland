@@ -1,4 +1,4 @@
-@import "gruvbox.css";
+@import ".config/wofi/gruvbox.css";
 
 /* Target the icon specifically */
 #img {
