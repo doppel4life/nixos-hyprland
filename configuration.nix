@@ -11,7 +11,7 @@
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 10; 
+  boot.loader.systemd-boot.configurationLimit = 15; 
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable networking
@@ -39,9 +39,6 @@
   };
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  # Enable the display manager
-  #services.displayManager.gdm.enable = true;
 
   # Enable hyprland window manager
   programs.hyprland = {
