@@ -1,0 +1,19 @@
+# General Settings
+show=drun            # Default mode (drun, run, or dmenu)
+width=45%            # Width in pixels or percentage
+height=400           # Height in pixels or percentage
+location=center      # Window position (center, top, bottom, etc.)
+orientation=vertical # List orientation
+halign=fill          # Horizontal alignment
+allow_images=true    # Show icons in drun mode
+image_size=24        # Size of the icons
+
+# Interaction
+prompt=Search...     # Custom prompt text
+filter_rate=100      # Search responsiveness
+matching=contains    # Matching mode (contains or fuzzy)
+insensitive=true     # Case-insensitive search
+no_actions=true      # Hide multi-action menu
+
+# Terminal settings (for 'run' mode apps)
+term=kitty           # Terminal to use (e.g., alacritty, foot, wezterm)

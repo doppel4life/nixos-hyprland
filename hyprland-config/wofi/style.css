@@ -1,0 +1,23 @@
+@import "gruvbox.css";
+
+/* Target the icon specifically */
+#img {
+    margin-right: 15px;  /* Space between the logo and the app name */
+    background: transparent;
+}
+
+/* Optional: Make icons slightly transparent unless selected */
+#entry #img {
+    opacity: 0.8;
+}
+
+#entry:selected #img {
+    opacity: 1.0;
+    /* Optional: add a slight "glow" or scale effect */
+    transition: all 0.2s ease-in-out;
+}
+
+/* If you want rounded icons */
+#img {
+    border-radius: 8px;
+}

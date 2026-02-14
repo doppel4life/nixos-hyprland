@@ -238,14 +238,16 @@
   ];
 
   #theme
-  stylix.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-  stylix.polarity = "dark";
-  stylix.cursor = {
-    name = "Vimix-cursors ";
-    package = pkgs.vimix-cursors;
-    size = 14;
-  };
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    polarity = "dark";
+    cursor = {
+        name = "Bibata-Modern-Ice";
+        package = pkgs.bibata-cursors;
+        size = 14;
+        };
+    };
   # List services that you want to enable:
 
   system.stateVersion = "25.05";

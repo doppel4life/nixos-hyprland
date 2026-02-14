@@ -5,6 +5,13 @@
         home.homeDirectory = "/home/doppel";
         home.stateVersion = "25.05";
 	xdg.enable = true;
+    gtk = {
+        enable = true;
+        iconTheme = {
+            name = "Papirus-Dark";
+            package = pkgs.papirus-icon-theme;
+        };
+    };
 	programs.git = {
 		enable = true;
 		settings.user = {
@@ -58,6 +65,7 @@
 home.file.".config/hypr".source = /home/doppel/nixos-hyprland/hyprland-config/hypr;
 home.file.".config/kitty".source = /home/doppel/nixos-hyprland/hyprland-config/kitty;
 home.file.".config/waybar".source = /home/doppel/nixos-hyprland/hyprland-config/waybar;
+home.file.".config/wofi".source = /home/doppel/nixos-hyprland/hyprland-config/wofi;
 home.file.".vim".source = /home/doppel/.vim;
 
 }
