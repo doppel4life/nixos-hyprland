@@ -66,6 +66,6 @@ home.file.".config/hypr".source = /home/doppel/nixos-hyprland/hyprland-config/hy
 home.file.".config/kitty".source = /home/doppel/nixos-hyprland/hyprland-config/kitty;
 home.file.".config/waybar".source = /home/doppel/nixos-hyprland/hyprland-config/waybar;
 home.file.".config/wofi".source = /home/doppel/nixos-hyprland/hyprland-config/wofi;
-home.file.".vim".source = /home/doppel/.vim;
+#home.file.".vim".source = /home/doppel/.vim;
 
 }
