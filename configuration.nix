@@ -40,6 +40,13 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # Enable hyprland window manager
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
+  };
+
  # Enable greetd
   services.greetd = {
     enable = true;
@@ -51,14 +58,6 @@
     };
   };
 
-  # Enable hyprland window manager
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
-  };
-
-   # This stops boot logs from "bleeding" into the tuigreet UI
   systemd.services.greetd.serviceConfig = {
     Type = "idle";
     StandardInput = "tty";
@@ -168,7 +167,7 @@
                 enable = true;
                 lsp.enable = true;
                 lsp.servers = ["pyright"];
-                format.enable = true;
+                format.enable = false;
                 dap.enable = true ;
                 };
             
@@ -188,6 +187,28 @@
     };
   };
 
+  programs.tmux = {
+    enable = true;
+    shortcut = "a";
+    extraConfig = ''
+    set -g mouse on
+
+    bind i split-window -h -c "#{pane_current_path}"
+    bind o split-window -v -c "#{pane_current_path}"
+    bind w new-window -c "#{pane_current_path}"
+
+    bind h select-pane -L
+    bind j select-pane -D
+    bind k select-pane -U
+    bind l select-pane -R
+
+    bind b previous-window
+    bind n next-window
+
+    bind q kill-pane
+    bind C-q kill-window
+    '';
+    };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.doppel = {
     isNormalUser = true;
@@ -231,6 +252,7 @@
     htop
     bc
     typst
+    unzip
   ];
 
   #fonts
