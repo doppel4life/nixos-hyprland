@@ -207,6 +207,8 @@
 
     bind q kill-pane
     bind C-q kill-window
+
+    set -g status-position top
     '';
     };
   # Define a user account. Don't forget to set a password with ‘passwd’.
