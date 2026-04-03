@@ -180,6 +180,13 @@
                 };
 
             rust.enable = true;
+
+            go = {
+                enable = true;
+                lsp.enable = true;
+                lsp.servers =["gopls"];
+                format.enable = true;
+                };
             markdown.enable = true;
             
         };
@@ -209,6 +216,16 @@
     bind C-q kill-window
 
     set -g status-position top
+    set -g status-style bg=default
+    set -g status-justify left
+
+    set -g status-left "#[fg=blue, bg=default][Pane #P]"
+    set -g status-left-length 20 
+
+    set -g status-right "" 
+
+    set -g window-status-current-format "#[fg=cyan.bold] #I:#W "
+    set -g window-status-format "#[fg=gray] #I:#W "
     '';
     };
   # Define a user account. Don't forget to set a password with ‘passwd’.
