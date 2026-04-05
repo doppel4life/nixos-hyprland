@@ -111,6 +111,7 @@
                 shiftwidth = 4;
                 tabstop = 4;
                 autoindent = true;
+                smartindent = true;
                 showmode = false;
                 };
         viAlias = true;
@@ -119,7 +120,7 @@
         autocomplete.blink-cmp = {
             enable = true;
             setupOpts = {
-                keymap.preset = "super-tab";
+                keymap.preset = "enter";
                 completion.ghost_text.enabled = true;
                 sources.default = [ "lsp" "path" "snippets" "buffer" ];
                 };
@@ -200,6 +201,8 @@
     extraConfig = ''
     set -g mouse on
 
+    set -g default-shell ${pkgs.fish}/bin/fish
+
     bind i split-window -h -c "#{pane_current_path}"
     bind o split-window -v -c "#{pane_current_path}"
     bind w new-window -c "#{pane_current_path}"
@@ -268,6 +271,7 @@
     hyprlock
     brightnessctl
     nmgui
+    wl-clipboard
     htop
     bc
     typst
