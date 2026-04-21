@@ -116,7 +116,8 @@
                 };
         viAlias = true;
         vimAlias = true;
-        
+        clipboard.enable = true;
+    
         autocomplete.blink-cmp = {
             enable = true;
             setupOpts = {
@@ -248,6 +249,7 @@
 #shotwell
       loupe
       rapidraw
+      go
     ];
   };
 
@@ -261,7 +263,7 @@
     kitty
     fish
     librewolf-unwrapped
-    neofetch
+    fastfetch
     tree
     git
     tealdeer
@@ -296,5 +298,5 @@
     };
   # List services that you want to enable:
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 }
