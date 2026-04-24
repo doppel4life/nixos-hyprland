@@ -3,7 +3,7 @@
 {
 	home.username = "doppel";
         home.homeDirectory = "/home/doppel";
-        home.stateVersion = "25.05";
+        home.stateVersion = "26.05";
 	xdg.enable = true;
     gtk = {
         enable = true;

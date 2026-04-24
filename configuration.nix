@@ -269,7 +269,7 @@
     tealdeer
     waybar
     wofi
-    hyprpaper
+    awww
     hyprlock
     brightnessctl
     nmgui
