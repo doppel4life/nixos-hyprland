@@ -104,7 +104,6 @@
   # setting up nvf
   programs.nvf = {
     enable = true;
-    # Your settings go here
     settings = {
       vim = {
         options = {
@@ -238,7 +237,6 @@
     description = "doppel";
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-      #  thunderbird
       neovim
       librewolf-unwrapped
       qbittorrent
@@ -246,10 +244,10 @@
       inkscape
       zathura
       libreoffice
-#shotwell
       loupe
       rapidraw
       go
+      nixos-shell
     ];
   };
 
